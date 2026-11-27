@@ -25,8 +25,14 @@ from orchestration.state.transitions import (
 
 
 def N(i, *deps):
-    return PlanNode(node_id=i, agent="stub", instruction=i, depends_on=deps)
-
+    return PlanNode(
+        node_id=i,
+        role="stub",
+        instruction=i,
+        depends_on=deps,
+        output_schema={"type": "object"},
+        side_effect_class="read",
+    )
 
 def fresh():
     return TaskState.new(Request(goal="x"))

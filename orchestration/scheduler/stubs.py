@@ -18,8 +18,16 @@ async def echo_runner(node: PlanNode, state: TaskState) -> StepResult:
 def build_stub_graph() -> list[PlanNode]:
     """Diamond: research_a & research_b (parallel read) -> analyze -> write (needs approval)."""
     def n(i: str, *deps: str, approval: bool = False) -> PlanNode:
-        return PlanNode(node_id=i, agent="stub", instruction=f"do {i}",
-                        depends_on=deps, requires_approval=approval)
+        return PlanNode(
+            node_id=i,
+            role="stub",
+            instruction=f"do {i}",
+            depends_on=deps,
+            output_schema={"type": "object"},
+            side_effect_class="write" if approval else "read",
+            requires_approval=approval,
+        )
+
     return [
         n("research_a"),
         n("research_b"),

@@ -1,24 +1,20 @@
-"""PlanNode contract (DRAFT by Person 1 so the scheduler can compile).
-
-Owner: Person 2. Person 1 only relies on: node_id, depends_on, requires_approval.
-`requires_approval` is the field M5 reviews.
-"""
-
-from typing import Any
-
+from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
-
 from orchestration.contracts.request import SCHEMA_VERSION
-
 
 class PlanNode(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True, str_strip_whitespace=True)
 
     schema_version: str = SCHEMA_VERSION
     node_id: str = Field(pattern=r"^[A-Za-z][A-Za-z0-9_.-]*$")
-    agent: str = Field(min_length=1)          # which specialist runs it
+    role: str = Field(min_length=1)
     instruction: str = Field(min_length=1)
+    allowed_tools: list[str] = Field(default_factory=list)
     depends_on: tuple[str, ...] = ()
+    input_refs: list[str] = Field(default_factory=list)
+    output_schema: dict[str, Any]
+    preconditions: list[str] = Field(default_factory=list)
+    side_effect_class: Literal["read", "write", "none"]
     requires_approval: bool = False
     params: dict[str, Any] = Field(default_factory=dict)
 

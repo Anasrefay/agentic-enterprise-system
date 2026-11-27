@@ -20,9 +20,15 @@ from orchestration.state.state_machine import load_plan
 
 
 def N(i, *deps, approval=False):
-    return PlanNode(node_id=i, agent="stub", instruction=i, depends_on=deps,
-                    requires_approval=approval)
-
+    return PlanNode(
+        node_id=i,
+        role="stub",
+        instruction=i,
+        depends_on=deps,
+        output_schema={"type": "object"},
+        side_effect_class="write" if approval else "read",
+        requires_approval=approval,
+    )
 
 def make_state(nodes, **constraints):
     s = TaskState.new(Request(goal="t", constraints=Constraints(**constraints)))
