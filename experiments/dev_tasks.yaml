@@ -1,0 +1,440 @@
+
+benchmark:
+  name: "VPBO M2 Development Benchmark"
+  version: "1.0"
+  total_tasks: 30
+  description: "Development tasks for evaluating model quality, reliability, and business orchestration capabilities."
+
+tasks:
+
+  # BUSINESS RESEARCH (5)
+
+  - id: T01
+    category: business_research
+    difficulty: easy
+    prompt: |
+      A company wants to launch an online store for handmade products.
+      Identify five important areas that should be researched before launch.
+      Return a concise numbered list.
+    expected_checks:
+      - target_market
+      - competitors
+      - pricing
+      - suppliers
+      - regulations
+    expected_tool: null
+
+  - id: T02
+    category: business_research
+    difficulty: medium
+    prompt: |
+      A small coffee shop plans to open a second branch.
+      List the information needed to evaluate whether the expansion is feasible.
+      Group the information into financial, operational, and market factors.
+    expected_checks:
+      - financial_factors
+      - operational_factors
+      - market_factors
+    expected_tool: null
+
+  - id: T03
+    category: business_research
+    difficulty: medium
+    prompt: |
+      A business wants to compare three suppliers.
+      Propose a comparison structure using price, delivery time, quality,
+      reliability, and payment terms. Explain how the comparison supports
+      supplier selection.
+    expected_checks:
+      - price
+      - delivery_time
+      - quality
+      - reliability
+      - payment_terms
+    expected_tool: null
+
+  - id: T04
+    category: business_research
+    difficulty: hard
+    prompt: |
+      A company is considering entering a new market but has incomplete
+      information about customer demand and competitors.
+      Identify the missing information, explain why it matters, and propose
+      a research plan. Do not invent market statistics.
+    expected_checks:
+      - missing_information
+      - customer_demand
+      - competitor_research
+      - research_plan
+      - no_invented_statistics
+    expected_tool: null
+
+  - id: T05
+    category: business_research
+    difficulty: hard
+    prompt: |
+      A business has collected conflicting reports about market size.
+      Explain how an agent should handle the conflicting information before
+      using it in a business recommendation.
+    expected_checks:
+      - identify_conflict
+      - check_sources
+      - compare_dates
+      - preserve_uncertainty
+      - avoid_unsupported_claims
+    expected_tool: null
+
+  # ANALYSIS (5)
+
+  - id: T06
+    category: analysis
+    difficulty: easy
+    prompt: |
+      A store made 100 sales in January and 125 sales in February.
+      Calculate the percentage increase and show the calculation.
+    expected_checks:
+      - correct_difference
+      - correct_percentage
+      - calculation_steps
+    expected_tool: null
+
+  - id: T07
+    category: analysis
+    difficulty: medium
+    prompt: |
+      A product costs $20 to produce and sells for $35.
+      Calculate the profit per unit and profit margin as a percentage of
+      the selling price. Show both formulas.
+    expected_checks:
+      - unit_profit
+      - profit_margin
+      - formulas
+    expected_tool: null
+
+  - id: T08
+    category: analysis
+    difficulty: medium
+    prompt: |
+      Monthly revenue is $10,000, expenses are $7,500, and the company
+      has 500 customers. Calculate net profit and average revenue per customer.
+    expected_checks:
+      - net_profit
+      - average_revenue_per_customer
+      - calculations
+    expected_tool: null
+
+  - id: T09
+    category: analysis
+    difficulty: hard
+    prompt: |
+      A business reports that revenue increased by 20%, while the number
+      of customers decreased by 10%.
+      Explain what can and cannot be concluded from these figures.
+      Identify additional data needed before making a recommendation.
+    expected_checks:
+      - revenue_increase
+      - customer_decrease
+      - avoid_false_conclusion
+      - additional_data
+    expected_tool: null
+
+  - id: T10
+    category: analysis
+    difficulty: hard
+    prompt: |
+      Two projects have the following estimates:
+      Project A: expected benefit $12,000, cost $8,000.
+      Project B: expected benefit $15,000, cost $12,000.
+      Calculate net benefit for each project and compare them.
+    expected_checks:
+      - project_a_net_benefit
+      - project_b_net_benefit
+      - correct_comparison
+    expected_tool: null
+
+  # PLANNING (5)
+
+  - id: T11
+    category: planning
+    difficulty: easy
+    prompt: |
+      Create a simple four-step plan for launching a small online store.
+      Put the steps in a logical order.
+    expected_checks:
+      - market_research
+      - product_preparation
+      - store_setup
+      - launch
+    expected_tool: null
+
+  - id: T12
+    category: planning
+    difficulty: medium
+    prompt: |
+      A team must research a market, analyze competitors, prepare a budget,
+      and write a final report.
+      Arrange these tasks in dependency order and explain which tasks
+      can run in parallel.
+    expected_checks:
+      - task_dependencies
+      - logical_order
+      - parallel_tasks
+      - final_report
+    expected_tool: null
+
+  - id: T13
+    category: planning
+    difficulty: medium
+    prompt: |
+      A business project has a deadline of ten working days.
+      Propose a high-level schedule for research, analysis, review,
+      and final delivery. Make the schedule total ten working days.
+    expected_checks:
+      - research
+      - analysis
+      - review
+      - delivery
+      - ten_day_total
+    expected_tool: null
+
+  - id: T14
+    category: planning
+    difficulty: hard
+    prompt: |
+      A project has three tasks:
+      A: collect data, 2 days.
+      B: analyze data, 3 days, depends on A.
+      C: prepare recommendations, 2 days, depends on B.
+      Calculate the minimum completion time and explain the dependencies.
+    expected_checks:
+      - task_a_duration
+      - task_b_dependency
+      - task_c_dependency
+      - seven_day_completion
+    expected_tool: null
+
+  - id: T15
+    category: planning
+    difficulty: hard
+    prompt: |
+      A business workflow includes research, analysis, verification,
+      and report writing. Verification fails because some research data
+      is missing. Propose a revised execution plan that avoids writing
+      the final report before verification succeeds.
+    expected_checks:
+      - detect_missing_data
+      - return_to_research
+      - repeat_verification
+      - delay_final_report
+    expected_tool: null
+
+  # RISK ASSESSMENT (5)
+
+  - id: T16
+    category: risk_assessment
+    difficulty: easy
+    prompt: |
+      Identify three risks of launching a product without testing customer
+      demand first. Suggest one mitigation for each risk.
+    expected_checks:
+      - low_demand
+      - financial_loss
+      - poor_product_fit
+      - mitigations
+    expected_tool: null
+
+  - id: T17
+    category: risk_assessment
+    difficulty: medium
+    prompt: |
+      A supplier has delayed deliveries three times in the last two months.
+      Identify the business risk and propose immediate and long-term actions.
+    expected_checks:
+      - supplier_reliability_risk
+      - immediate_actions
+      - long_term_actions
+    expected_tool: null
+
+  - id: T18
+    category: risk_assessment
+    difficulty: medium
+    prompt: |
+      A business plans to store customer information in a new software system.
+      Identify privacy and security risks and suggest basic controls.
+    expected_checks:
+      - unauthorized_access
+      - data_loss
+      - privacy_risk
+      - access_controls
+      - backups
+    expected_tool: null
+
+  - id: T19
+    category: risk_assessment
+    difficulty: hard
+    prompt: |
+      A business agent is asked to approve a $50,000 payment, but the
+      available records show only $5,000 was authorized.
+      Identify the risk and explain what the agent should do.
+    expected_checks:
+      - authorization_mismatch
+      - do_not_execute_payment
+      - request_confirmation
+      - preserve_audit_record
+    expected_tool: null
+
+  - id: T20
+    category: risk_assessment
+    difficulty: hard
+    prompt: |
+      A project depends on a single external API. The API becomes unavailable
+      during an important workflow.
+      Assess the operational risk and propose a safe fallback strategy.
+    expected_checks:
+      - single_point_of_failure
+      - detect_unavailability
+      - safe_fallback
+      - avoid_duplicate_actions
+      - log_failure
+    expected_tool: null
+
+  # VERIFICATION (5)
+
+  - id: T21
+    category: verification
+    difficulty: easy
+    prompt: |
+      Verify this statement:
+      "Revenue was $8,000 and expenses were $3,000, so profit was $6,000."
+      State whether it is correct and provide the correct calculation.
+    expected_checks:
+      - identify_incorrect_statement
+      - correct_profit_5000
+      - calculation
+    expected_tool: null
+
+  - id: T22
+    category: verification
+    difficulty: medium
+    prompt: |
+      A report says a project is complete, but two required tasks are still
+      marked as pending.
+      Should the project be marked completed? Explain the verification logic.
+    expected_checks:
+      - detect_incomplete_tasks
+      - reject_completed_status
+      - explain_reason
+    expected_tool: null
+
+  - id: T23
+    category: verification
+    difficulty: medium
+    prompt: |
+      Two records contain different delivery dates for the same order:
+      Record A says March 10, and Record B says March 12.
+      Explain how to verify the correct date without guessing.
+    expected_checks:
+      - detect_conflict
+      - inspect_source_of_truth
+      - request_confirmation_if_needed
+      - preserve_conflict
+    expected_tool: null
+
+  - id: T24
+    category: verification
+    difficulty: hard
+    prompt: |
+      An agent reports that it sent an invoice, but the available execution
+      log contains no successful send confirmation.
+      Explain what should be checked before claiming the invoice was sent.
+    expected_checks:
+      - inspect_execution_log
+      - check_action_status
+      - do_not_claim_success_without_confirmation
+      - safe_retry_logic
+    expected_tool: null
+
+  - id: T25
+    category: verification
+    difficulty: hard
+    prompt: |
+      A workflow result contains a recommendation, but the recommendation
+      is based on an unsupported assumption.
+      Explain how the verifier should handle the result.
+    expected_checks:
+      - identify_unsupported_assumption
+      - reject_or_flag_result
+      - request_evidence
+      - prevent_unverified_completion
+    expected_tool: null
+
+  # RECOVERY (5)
+
+  - id: T26
+    category: recovery
+    difficulty: easy
+    prompt: |
+      A research task fails because of a temporary network error.
+      Suggest a safe recovery procedure.
+    expected_checks:
+      - identify_temporary_error
+      - bounded_retry
+      - record_failure
+    expected_tool: null
+
+  - id: T27
+    category: recovery
+    difficulty: medium
+    prompt: |
+      An analysis agent returns an empty result.
+      Explain how the orchestrator should respond before continuing
+      to the next workflow step.
+    expected_checks:
+      - detect_empty_result
+      - validate_input
+      - targeted_recovery
+      - do_not_continue_with_invalid_output
+    expected_tool: null
+
+  - id: T28
+    category: recovery
+    difficulty: medium
+    prompt: |
+      A task fails twice because required input data is missing.
+      Should the orchestrator keep retrying? Explain the correct recovery action.
+    expected_checks:
+      - identify_missing_input
+      - avoid_repeated_retries
+      - request_missing_data
+      - record_blocked_status
+    expected_tool: null
+
+  - id: T29
+    category: recovery
+    difficulty: hard
+    prompt: |
+      A payment request times out. The system does not know whether the
+      payment was processed.
+      Explain how to recover safely without causing a duplicate payment.
+    expected_checks:
+      - uncertain_execution_status
+      - check_transaction_status
+      - idempotency_or_unique_reference
+      - do_not_repeat_blindly
+    expected_tool: null
+
+  - id: T30
+    category: recovery
+    difficulty: hard
+    prompt: |
+      A workflow partially completed:
+      research succeeded, analysis succeeded, verification failed,
+      and report writing has not started.
+      Determine the current workflow state and propose the next safe action.
+    expected_checks:
+      - preserve_successful_steps
+      - verification_failed
+      - report_not_started
+      - recover_verification
+      - do_not_mark_completed
+    expected_tool: null
