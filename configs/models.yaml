@@ -1,0 +1,15 @@
+models:
+  low:
+    model: openrouter/liquid/lfm-3-1.7b:free
+    provider: openrouter
+    tier: low
+
+  medium:
+    model: openrouter/nvidia/nemotron-3.5-lightning:free
+    provider: openrouter
+    tier: medium
+
+  high:
+    model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+    provider: openrouter
+    tier: high
